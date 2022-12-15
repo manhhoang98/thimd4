@@ -15,20 +15,20 @@
     </label>
     <label>Area:
         <input type="text" th:field="*{area}" required>
-        <span th:if="${#fields.hasErrors('area')}" th:errors="*{area}"></span>
+        <span th:if="${#fields.hasErrors('area')}" th:errors="*{area}" style="color: red"></span>
     </label>
 
     <label>Population:
         <input type="text" th:field="*{population}" required>
-        <span th:if="${#fields.hasErrors('population')}" th:errors="*{population}"></span>
+        <span th:if="${#fields.hasErrors('population')}" th:errors="*{population}" style="color: red">></span>
     </label>
     <label>Gdp:
         <input type="text" th:field="*{gdp}" required>
-        <span th:if="${#fields.hasErrors('gdp')}" th:errors="*{gdp}"></span>
+        <span th:if="${#fields.hasErrors('gdp')}" th:errors="*{gdp}" style="color: red">></span>
     </label>
     <label>description:
         <input type="text" th:field="*{description}" required>
-        <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+        <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}" style="color: red">></p>
     </label>
 
     <label>Country:
