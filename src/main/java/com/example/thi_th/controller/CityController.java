@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -34,17 +35,9 @@ public class CityController {
     }
 
     @GetMapping
-    public ModelAndView showAll(@PageableDefault(value = 3) Pageable pageable,
-                                @RequestParam Optional<String> search) {
+    public ModelAndView showAll() {
         ModelAndView modelAndView = new ModelAndView("city/list");
-        Page<City> cities;
-        if (search.isPresent()) {
-            cities = iCityService.findAllByName(pageable, search.get());
-            modelAndView.addObject("search", search.get());
-        } else {
-            cities = iCityService.findAll(pageable);
-
-        }
+        Iterable<City> cities = iCityService.findAll();
         modelAndView.addObject("cities", cities);
         return modelAndView;
     }

@@ -12,7 +12,7 @@
 </head>
 <body>
 <h2><strong>List Cities</strong></h2>
-<div>
+<div style="margin-right: 500px">
 <button style="color: white; text-decoration: none" class="btn btn-primary"><a  style="text-decoration: none; color: white" th:href="@{/city/create}">Create new City</a></button><br><br>
 </div>
 
@@ -33,20 +33,14 @@
         <td th:text="${c.population}"></td>
         <td th:text="${c.getGdp()}"></td>
         <td th:text="${c.getDescription()}"></td>
-        <td><button style="color: white; text-decoration: none" class="btn btn-success"><a style="text-decoration: none;color: black" th:href="@{/city/edit/{id}(id=${c.getId()})}" >Edit</a></button></td>
-        <td><button style="color: white; text-decoration: none"  class="btn btn-danger"><a style="text-decoration: none ;color: black" th:href="@{/city/delete/{id}(id=${c.getId()})}"
-                                              onclick="return confirm('Are you sure to want to Delete?')">Delete</a></button></td>
-        <td><button style="color: white; text-decoration: none"  class="btn btn-warning"><a style="text-decoration: none ;color: black" th:href="@{/city/view/{id}(id=${c.getId()})}">View</a></button></td>
+        <td><button style="color: white; text-decoration: none" class="btn btn-success"><a style="text-decoration: none;color: black;width: 100%" th:href="@{/city/edit/{id}(id=${c.getId()})}" >Edit</a></button></td>
+        <td><button style="color: white; text-decoration: none"  class="btn btn-danger"><a style="text-decoration: none ;color: black;width: 100%" th:href="@{/city/delete/{id}(id=${c.getId()})}"
+                                              onclick="return confirm('Are you sure to want to delete ?')">Delete</a></button></td>
+        <td><button style="color: white; text-decoration: none"  class="btn btn-warning"><a style="text-decoration: none ;width: 100%;color: black" th:href="@{/city/view/{id}(id=${c.getId()})}">View</a></button></td>
     </tr>
 </table>
 <br>
-<div>
-    <a th:href="@{/city(page=${cities.number - 1},search=${search})}"
-       th:if="${cities.hasPrevious()}"><span>Previous</span></a>
-    <span th:text="${cities.number + 1} + '/' + ${cities.totalPages}"></span>
-    <a th:href="@{/city(page=${cities.number + 1},search=${search})}"
-       th:if="${cities.hasNext()}"><span>Next</span></a>
-</div>
+
 <footer th:replace="/layout::footer"></footer>
 </body>
 </html>
