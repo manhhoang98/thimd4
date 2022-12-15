@@ -6,8 +6,9 @@
     <style th:replace="/layout :: css"></style>
 </head>
 <body>
-<h1>Edit City</h1>
-<form id="form" th:action="@{/city/edit/{id}(id=${city.getId()})}" method="post" th:object="${city}" >
+<h1 align="center">Edit City</h1>
+<table>
+<form id="form" th:action="@{/city/edit/{id}(id=${city.getId()})}" method="post" th:object="${city}"  >
     <label>Name:
         <input type="text" th:field="*{name}" required>
         <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
@@ -34,12 +35,17 @@
             <option th:each="c : ${country}" th:value="${c.getId()}" th:text="${c.getName()}"></option>
         </select>
     </label>
+    <br>
+    <br>
     <button type="submit">Edit</button>
 </form>
 <h4 th:class="notify" th:if="${statusEdit}">
     <p style="color: blue">"Edit Successfully"</p>
 </h4>
+    <br>
+    <br>
 <a th:href="@{/city}">Back to home</a>
+</table>
 <footer th:replace="/layout::footer"></footer>
 </body>
 </html>

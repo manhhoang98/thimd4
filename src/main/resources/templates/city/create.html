@@ -6,8 +6,9 @@
 
     <style th:replace="/layout::css"></style>
 </head>
-<body>
-<h1>Create New City</h1>
+<body >
+<h1 align="center">Create New City</h1>
+<table width="100%">
 <form id="form" th:action="@{/city/create}" method="post" th:object="${city}">
     <label>Name:
         <input type="text" th:field="*{name}" required>
@@ -35,14 +36,19 @@
         <select th:field="*{country}">
             <option th:each="c : ${country}" th:value="${c.getId()}" th:text="${c.getName()}"></option>
         </select>
-    </label>
-    <button type="submit">Create</button>
+    </label><br>
+    <br>
 
+    <button type="submit">Create</button>
+    <br>
 </form>
 <h4 th:class="notify" th:if="${status}">
    <p style="color: blue">"Create Successfully"</p>
 </h4>
+    <br>
+    <br>
 <a th:href="@{/city}">Back to home</a>
+</table>
 <footer th:replace="/layout::footer"></footer>
 </body>
 </html>
